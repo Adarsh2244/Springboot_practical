@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Internship Application</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+        }
+        label {
+            display: block;
+            margin-top: 15px;
+        }
+        input[type=text], select {
+            padding: 6px;
+            width: 300px;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #0066cc;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h2>Add Internship Application</h2>
+    <form action="#" th:action="@{/save}" th:object="${application}" method="post">
+        <label>Student Name:</label>
+        <input type="text" th:field="*{studentName}" required>
+
+        <label>Company:</label>
+        <input type="text" th:field="*{company}" required>
+
+        <label>Role:</label>
+        <input type="text" th:field="*{role}" required>
+
+        <label>Status:</label>
+        <select th:field="*{status}">
+            <option value="pending">Pending</option>
+            <option value="approved">Approved</option>
+        </select>
+
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
